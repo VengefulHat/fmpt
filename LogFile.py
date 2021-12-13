@@ -4,7 +4,7 @@
 import time
 
 
-def logowanie(title, data):
+def rejestracja(title, data):
     # wywołanie w przypadku podaniu danych(?)
     with open('logfile.txt', 'a') as f:
         f.write("| " + time.ctime() + " | " + title)
@@ -23,4 +23,4 @@ def error(title, url):
         f.write("| " + time.ctime() + " | " + title)
         f.write("| " + time.ctime() + " | " + url)
         f.close()
-    pass
+    return
