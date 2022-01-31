@@ -19,7 +19,7 @@ def rejestracja():
     war = 0
     help = 0
     browser = webdriver.Chrome(ChromeDriverManager().install())
-    browser.get(dane.forumginekologii_url)
+    browser.get(dane.praktycznafizjoterapia_url)
     browser.maximize_window()
     time.sleep(4)
     print("przechodzimy do def zamykania reklamy ")
@@ -106,7 +106,7 @@ def zamowienie():
     print("Wrzucam kom co sekundę bo mi pomija ten czas 5 s")
     time.sleep(1)
     print("I sie strona załadowac nie zdąży")
-    browser.find_element(By.CSS_SELECTOR, "input[name='terms[53]']").click()
+    browser.find_element(By.CSS_SELECTOR, "input[name='terms[56]']").click()
     time.sleep(1)
     browser.find_element_by_xpath("/html/body/div[10]/div[@role='dialog']/div[@class='swal2-buttonswrapper']/button[1]").click()
 
@@ -126,7 +126,7 @@ def zamowienie():
 
 
     print("przechodzimy do zamówienia, na foumginekologii wybierzemy pakiet z firmą")
-    browser.find_element_by_xpath("/html//div[@class='main-bar']/div/div//a[@href='\prenumerata']").click()
+    browser.find_element_by_xpath("/html//div[@class='main-bar']/div/div//a[@href='/prenumerata']").click()
     time.sleep(2)
 
     try:

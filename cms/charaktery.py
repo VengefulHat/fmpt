@@ -19,7 +19,7 @@ def rejestracja():
     war = 0
     help = 0
     browser = webdriver.Chrome(ChromeDriverManager().install())
-    browser.get(dane.forumginekologii_url)
+    browser.get(dane.charaktery_url)
     browser.maximize_window()
     time.sleep(4)
     print("przechodzimy do def zamykania reklamy ")
@@ -99,19 +99,19 @@ def zamowienie():
     sys.stdout.flush()
     time.sleep(3)
     time.sleep(1)
+    # tojest najświeższy komentarz, sytuacja opanowana poniższą linijką
     sys.stdout.flush()
     time.sleep(1)
-    print("Jebany program o chuj chodzi")
     time.sleep(1)
-    print("Wrzucam kom co sekundę bo mi pomija ten czas 5 s")
     time.sleep(1)
-    print("I sie strona załadowac nie zdąży")
-    browser.find_element(By.CSS_SELECTOR, "input[name='terms[53]']").click()
+    browser.find_element(By.CSS_SELECTOR, "input[name='terms[223]']").click()
     time.sleep(1)
     browser.find_element_by_xpath("/html/body/div[10]/div[@role='dialog']/div[@class='swal2-buttonswrapper']/button[1]").click()
 
     popo = browser.find_elements(By.CLASS_NAME, "swal2-confirm swal2-styled")
     print(len(popo))
+
+
 
     #browser.execute_script("document.querySelector('.input[name=\"terms[53]\"]').checked = true;")
     #document.querySelector(".example")
@@ -126,7 +126,7 @@ def zamowienie():
 
 
     print("przechodzimy do zamówienia, na foumginekologii wybierzemy pakiet z firmą")
-    browser.find_element_by_xpath("/html//div[@class='main-bar']/div/div//a[@href='\prenumerata']").click()
+    browser.find_element_by_xpath("/html//div[@class='main-bar']/div/div//a[@href='/prenumerata']").click()
     time.sleep(2)
 
     try:
@@ -142,10 +142,17 @@ def zamowienie():
     time.sleep(2)
     a = browser.find_elements(By.TAG_NAME, 'iframe')
     print(len(a))
-    time.sleep(5)
-    browser.refresh()
+    #time.sleep(5)
 
+
+    time.sleep(2)
+    # ifa = browser.find_elements(By.TAG_NAME, "iframe")
+    # browser.switch_to.frame(ifa[0])
+    browser.find_element(By.XPATH, "/html//div[@role='dialog']/div[@class='swal2-buttonswrapper']/button[2]").click()
+    # browser.switch_to.default_content()
     time.sleep(1)
+    browser.refresh()
+    time.sleep(3)
     browser.switch_to.frame(browser.find_elements(By.TAG_NAME, 'iframe')[1])
     browser.find_element(By.CSS_SELECTOR, 'button[name="save"]').click()
     time.sleep(7)

@@ -23,6 +23,8 @@ def rejestracja():
     browser.maximize_window()
     time.sleep(2)
     dane.AdTerminator(browser)
+    browser.refresh()
+    time.sleep(2)
     browser.find_element_by_xpath("//a[contains(text(),'Zaloguj')]").click()
     time.sleep(3)
     browser.find_element_by_xpath("//a[contains(text(),'Zarejestruj się')]").click()
@@ -68,8 +70,9 @@ def rejestracja():
     time.sleep(3)
     return
 
-
+### TEN KOD NIE BĘDZIE DZIAŁAŁ BO WYŁĄCZONO OPCJE ZAKUPU SYBSKRYBCJI
 def zamowienie():
+    #dane.cmspopupshutup(browser)
     print("przechodzimy do zamówienia, na pediatrzeplus wybierzemy pakiet z osobisty na miesiąc")
     browser.find_element_by_xpath("//a[contains(text(),'Oferta')]").click()
     time.sleep(5)

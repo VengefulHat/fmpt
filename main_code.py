@@ -27,38 +27,73 @@ import netflixy.literkaprzedszkole as literkaprzedszkole
 
 # - cms:
 import cms.forumginekologii as forumginekologii
-
+import cms.praktycznafizjoterapia as praktycznafizjoterapia
+import cms.charaktery as charaktery
+import cms.psychologiawpraktyce as psychologiawpraktyce
+import cms.forumlogopedy as forumlogopedy
 
 # | main code |
+"""
+Tu będą śmieci które jeszcze działają jako testowe (czasem)
 
-if __name__ == '__main__':
-    # poczta.name_mail()
-    # poczta.rejestracja()
-
-    forumginekologii.rejestracja()
-
-    # literkaprzedszkole.rejestracja()
-    # literkaprzedszkole.zamowienie()
-    #
-    # animalexpertplus.rejestracja()
-    # animalexpertplus.zamowienie()
-    #
-    #
-    # charakteryplus.rejestracja()
-    # charakteryplus.zamowienie()
-    #
-    #
-    # doradcaksiegowego.rejestracja()
-    # doradcaksiegowego.zamowienie()
-    #
-    #
-    # net_fiz.rejestracja()
-    # net_fiz.zamowienie()
-    #
+    ### TEN KOD NIE BĘDZIE DZIAŁAŁ BO WYŁĄCZONO OPCJE ZAKUPU SYBSKRYBCJI
     # pediatriaplus.rejestracja()
     # pediatriaplus.zamowienie()
+    ### TEN KOD NIE BĘDZIE DZIAŁAŁ BO WYŁĄCZONO OPCJE ZAKUPU SYBSKRYBCJI
 
+poczta.name_mail()
+    psychologiawpraktyce.rejestracja()
+    psychologiawpraktyce.zamowienie()
+
+    charaktery.rejestracja()
+    charaktery.zamowienie()
+
+    forumginekologii.rejestracja()
+    forumginekologii.zamowienie()
+poczta.rejestracja()
+"""
+
+
+if __name__ == '__main__':
+    #import cnc
+
+# CMS
+#     forumlogopedy.rejestracja()
+#     forumlogopedy.zamowienie()
+
+    # psychologiawpraktyce.rejestracja()
+    # psychologiawpraktyce.zamowienie()
+
+    forumlogopedy.rejestracja()
+    forumlogopedy.zamowienie()
+    #
+    forumginekologii.rejestracja()
+    forumginekologii.zamowienie()
+
+    charaktery.rejestracja()
+    charaktery.zamowienie()
+
+    praktycznafizjoterapia.rejestracja()
+    praktycznafizjoterapia.zamowienie()
+
+
+# NETFLIXY
+
+    literkaprzedszkole.rejestracja()
+    literkaprzedszkole.zamowienie()
+
+    animalexpertplus.rejestracja()
+    animalexpertplus.zamowienie()
+
+    charakteryplus.rejestracja()
+    charakteryplus.zamowienie()
+
+    doradcaksiegowego.rejestracja()
+    doradcaksiegowego.zamowienie()
+
+    net_fiz.rejestracja()
+    net_fiz.zamowienie()
+
+    # poczta.wuef()
     # time.sleep(23456)
     pass
-
-#print(poczta.name_mail())

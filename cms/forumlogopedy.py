@@ -19,7 +19,7 @@ def rejestracja():
     war = 0
     help = 0
     browser = webdriver.Chrome(ChromeDriverManager().install())
-    browser.get(dane.forumginekologii_url)
+    browser.get(dane.forumlogopedy_url)
     browser.maximize_window()
     time.sleep(4)
     print("przechodzimy do def zamykania reklamy ")
@@ -106,7 +106,7 @@ def zamowienie():
     print("Wrzucam kom co sekundę bo mi pomija ten czas 5 s")
     time.sleep(1)
     print("I sie strona załadowac nie zdąży")
-    browser.find_element(By.CSS_SELECTOR, "input[name='terms[53]']").click()
+    browser.find_element(By.CSS_SELECTOR, "input[name='terms[4]']").click()
     time.sleep(1)
     browser.find_element_by_xpath("/html/body/div[10]/div[@role='dialog']/div[@class='swal2-buttonswrapper']/button[1]").click()
 
@@ -126,7 +126,7 @@ def zamowienie():
 
 
     print("przechodzimy do zamówienia, na foumginekologii wybierzemy pakiet z firmą")
-    browser.find_element_by_xpath("/html//div[@class='main-bar']/div/div//a[@href='\prenumerata']").click()
+    browser.find_element_by_xpath("/html//div[@class='main-bar']/div/div//a[@href='/prenumerata']").click()
     time.sleep(2)
 
     try:
@@ -202,22 +202,37 @@ def zamowienie():
     osoba prywatna = <input id="clientType-clienttype-privateperson">
     firma = <input id="clientType-clienttype-business">
     """
-
-    ########################### TO DZIAŁA JAK NALEŻY
     browser.execute_script("document.getElementById('clientType-clienttype-business').checked = true;")
-    # time.sleep(4)
+    time.sleep(2)
+    ########################### TO DZIAŁA JAK NALEŻY
+    browser.execute_script("document.getElementById('clientType-clienttype-privateperson').checked = true;")
+    browser.execute_script("document.getElementById('clientType-clienttype-privateperson').checked = true;")
+    browser.execute_script("document.getElementById('clientType-clienttype-privateperson').checked = true;")
+    try:
+        iframe_1 = browser.find_element(By.XPATH, "/html//iframe[@id='iframe-cart']")
+        browser.switch_to.frame(iframe_1)
+        time.sleep(1)
+        browser.find_element(By.CLASS_NAME, 'clientType btn order-address-client-type-button ').click()
+        time.sleep(1)
+        browser.switch_to.default_content()
+    except Exception:
+        pass
+    time.sleep(4)
     # browser.execute_script("document.getElementById('clientType-clienttype-privateperson').checked = true;")
     ########################### TO DZIAŁA JAK NALEŻY
 
     #browser.find_element_by_id("clientType-clienttype-privateperson").click()
-    browser.find_element_by_name("order[orderingPersonDetails][lastName]").send_keys(dane.Lname)
-    browser.find_element_by_name("order[orderingPersonDetails][position]").send_keys(dane.stanowisko)
-    browser.find_element_by_name("order[billing][address]").send_keys(dane.adress)
-    browser.find_element_by_name("order[billing][houseNumber]").send_keys(dane.numberhouse)
-    browser.find_element_by_name("order[billing][postalCode]").send_keys(dane.kodpocztowy)
-    browser.find_element_by_name("order[billing][city]").send_keys(dane.miasto)
-    browser.find_element_by_name("order[billing][companyName]").send_keys(dane.company_name)
-    browser.find_element_by_name("order[billing][nip]").send_keys(dane.nip)
+    dane.logCompany_CMS(browser)
+    # browser.find_element_by_name("order[orderingPersonDetails][lastName]").send_keys(dane.Lname)
+    # browser.find_element_by_name("order[orderingPersonDetails][position]").send_keys(dane.stanowisko)
+    # browser.find_element_by_name("order[billing][address]").send_keys(dane.adress)
+    # browser.find_element_by_name("order[billing][houseNumber]").send_keys(dane.numberhouse)
+    # browser.find_element_by_name("order[billing][postalCode]").send_keys(dane.kodpocztowy)
+    # browser.find_element_by_name("order[billing][city]").send_keys(dane.miasto)
+    # browser.find_element_by_name("order[billing][companyName]").send_keys(dane.company_name)
+    # browser.find_element_by_name("order[billing][nip]").send_keys(dane.nip)
+
+    browser.find_element(By.XPATH, "//select[@id='order_orderingPersonDetails_position']/option[@value='16']").click()
 
 
     time.sleep(1)

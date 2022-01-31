@@ -35,6 +35,7 @@ def name_mail():
 def rejestracja():
     global rejestracja_url
     global email_url
+    time.sleep(10)
     rejestracja = requests.get(email_url)
     rejestracja_1 = BeautifulSoup(rejestracja.text, "html.parser")
     for link in rejestracja_1.find_all('a'):
@@ -45,5 +46,32 @@ def rejestracja():
     email_url = ''
     return rejestracja_url
 
+def rejestracjaCMS():
+    global rejestracja_url
+    global email_url
+    time.sleep(10)
+    rejestracja = requests.get(email_url)
+    rejestracja_1 = BeautifulSoup(rejestracja.text, "html.parser")
+    for link in rejestracja_1.find_all('a'):
+        lista_href.append(link.get('href'))
+    for href in lista_href:
+        if 'resetting' in str(href):
+            rejestracja_url = href
+    email_url = ''
+    return rejestracja_url
 
-
+def wuef():
+    url = 'http://fmptestuje.pl/?kai71@fmptestuje.pl#mail-box-2404'
+    praca = requests.get(url)
+    pracaa = BeautifulSoup(praca.text, "html.parser")
+    dana = pracaa.find_all("td", {'class': 'width-100-center'})
+    dane111 = pracaa.select("td > tr:nth-of-type(3) tr:nth-of-type(3) [width]")
+    print(len(dane111))
+    print(len(dana))
+    print(dana)
+    for syntaks in dana:
+        print("a")
+        if "nr" in str(syntaks):
+            deny = re.findall("^['<Zamówienie nr> ']")
+            print(syntaks)
+    pass

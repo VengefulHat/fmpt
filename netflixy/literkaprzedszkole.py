@@ -3,6 +3,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 
 
 # import modułów
@@ -98,3 +99,12 @@ def zamowienie():
     time.sleep(5)
     return
 
+# def zjemcie():
+#     dra = webdriver.Firefox()
+#     dra.get('https://panoramafirm.pl/wielkopolskie,,pozna%C5%84,je%C5%BCyce,polska,13/forum_media_polska_sp._z_o.o.-abiefy_bjm.html')
+#     # time.sleep(2)
+#     # dra.find_element_by_class_name('rodo-disable btn btn-primary').click()
+#     # time.sleep(1)
+#     # dra.find_element_by_id('cookie-disable').click()
+#     # time.sleep(1)
+#     # dra.find_element_by_class_name('btn btn-primary text-nowrap').click()

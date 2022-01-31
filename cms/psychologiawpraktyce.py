@@ -19,7 +19,7 @@ def rejestracja():
     war = 0
     help = 0
     browser = webdriver.Chrome(ChromeDriverManager().install())
-    browser.get(dane.forumginekologii_url)
+    browser.get(dane.psychologiawpraktyce_url)
     browser.maximize_window()
     time.sleep(4)
     print("przechodzimy do def zamykania reklamy ")
@@ -106,7 +106,7 @@ def zamowienie():
     print("Wrzucam kom co sekundę bo mi pomija ten czas 5 s")
     time.sleep(1)
     print("I sie strona załadowac nie zdąży")
-    browser.find_element(By.CSS_SELECTOR, "input[name='terms[53]']").click()
+    browser.find_element(By.CSS_SELECTOR, "input[name='terms[16]']").click()
     time.sleep(1)
     browser.find_element_by_xpath("/html/body/div[10]/div[@role='dialog']/div[@class='swal2-buttonswrapper']/button[1]").click()
 
@@ -126,7 +126,7 @@ def zamowienie():
 
 
     print("przechodzimy do zamówienia, na foumginekologii wybierzemy pakiet z firmą")
-    browser.find_element_by_xpath("/html//div[@class='main-bar']/div/div//a[@href='\prenumerata']").click()
+    browser.find_element_by_xpath("/html//div[@class='main-bar']/div/div//a[@href='/prenumerata']").click()
     time.sleep(2)
 
     try:
@@ -208,26 +208,18 @@ def zamowienie():
     # time.sleep(4)
     # browser.execute_script("document.getElementById('clientType-clienttype-privateperson').checked = true;")
     ########################### TO DZIAŁA JAK NALEŻY
-
+    dane.logCompany_CMS(browser)
     #browser.find_element_by_id("clientType-clienttype-privateperson").click()
-    browser.find_element_by_name("order[orderingPersonDetails][lastName]").send_keys(dane.Lname)
-    browser.find_element_by_name("order[orderingPersonDetails][position]").send_keys(dane.stanowisko)
-    browser.find_element_by_name("order[billing][address]").send_keys(dane.adress)
-    browser.find_element_by_name("order[billing][houseNumber]").send_keys(dane.numberhouse)
-    browser.find_element_by_name("order[billing][postalCode]").send_keys(dane.kodpocztowy)
-    browser.find_element_by_name("order[billing][city]").send_keys(dane.miasto)
-    browser.find_element_by_name("order[billing][companyName]").send_keys(dane.company_name)
-    browser.find_element_by_name("order[billing][nip]").send_keys(dane.nip)
 
 
     time.sleep(1)
 
     browser.find_element_by_name("save").click()
 
-    time.sleep(1)
+    time.sleep(2)
 
     browser.find_element_by_id("orderTermsCheckAll").click()
-    time.sleep(1)
+    time.sleep(2)
     browser.find_element_by_name("save").click()
     print("Koniec składania zamówienia CMS")
     return
